@@ -1,7 +1,19 @@
 <resources>
-    <string name="app_name">BallBox</string>
+    <string name="app_name">球球宝盒</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="gift_package">快來快來，海量礼包等你来!</string>
+    <array name="main_tab_menu_title">
+        <item >新手大礼包奖励</item>
+        <item >每日签到领积分</item>
+        <item >分享到5个QQ群</item>
+        <item >做任务赚积分</item>
+    </array>
+    <array name="main_tab_menu_sub_title">
+        <item >新用户首次获得5积分</item>
+        <item >每日签到得1积分</item>
+        <item >分享到5个QQ群得10积分</item>
+        <item >每下载一款app都能获\n得相应积分，日无上限</item>
+    </array>
 </resources>

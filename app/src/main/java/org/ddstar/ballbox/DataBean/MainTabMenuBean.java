@@ -9,6 +9,13 @@ public class MainTabMenuBean {
     String workMsg;
     int type;
 
+    public MainTabMenuBean(int menuPhotoRes, String workName, String workMsg, int type) {
+        this.menuPhotoRes = menuPhotoRes;
+        this.workName = workName;
+        this.workMsg = workMsg;
+        this.type = type;
+    }
+
     public int getMenuPhotoRes() {
         return menuPhotoRes;
     }
