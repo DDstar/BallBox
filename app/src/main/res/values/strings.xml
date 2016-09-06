@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BallBox</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="gift_package">快來快來，海量礼包等你来!</string>
+</resources>
