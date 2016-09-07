@@ -5,12 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.MainActivity">
-    <RadioGroup android:id="@+id/radioGroup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentStart="true"
-                android:orientation="horizontal" android:weightSum="4">
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="#aff"
+        android:orientation="horizontal"
+        android:weightSum="4">
         <RadioButton
             android:id="@+id/rb_main"
             style="@style/tabstyle"
@@ -37,4 +40,5 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
     </FrameLayout>
+
 </RelativeLayout>
