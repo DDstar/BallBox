@@ -115,4 +115,47 @@ wadurl：点击跳转的url
 {"code":1,"msg":"\u67e5\u8be2\u6210\u529f","fflist":{"wadtitle":"\u6700\u65b0\u516c\u544a\uff1a\u5feb\u8fdb\u6765\u770b\u770b\u554a","wadurl":"http:\/\/www.baidu.com"}}
 
 
+----------------------------------账号信息
 
+
+QQ互联：
+
+https://connect.qq.com/
+
+
+QQ就是30987333密码
+
+xx971313.
+
+
+友盟统计：
+
+http://www.umeng.com/
+
+ 友盟1016468219@qq.com密码971313.  
+
+
+蒲公英：
+
+https://www.pgyer.com/
+
+1016468219@qq.com密码971313.
+
+
+有米：
+
+https://www.youmi.net/ 
+
+有米 30987333@qq.com 密码xh971313.
+
+
+
+ 兑吧：
+
+http://www.duiba.com.cn/ 
+
+30987333@qq.com  xh971313.
+
+App Secret：
+
+bKEsb2fnob6hwWxikND94LDs3qm
