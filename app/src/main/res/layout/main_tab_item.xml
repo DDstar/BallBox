@@ -5,7 +5,7 @@
                 android:orientation="vertical"
                 android:padding="10dp">
     <ImageView
-        android:id="@+id/ima_photo"
+        android:id="@+id/ima_photo1"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@mipmap/ic_launcher"/>
@@ -16,16 +16,18 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="15dp"
-        android:layout_toEndOf="@+id/ima_photo"
+        android:layout_toEndOf="@+id/ima_photo1"
         android:text="title"
-        android:textSize="@dimen/text_size_middle"/>
+        android:textSize="@dimen/text_size_middle"
+        android:layout_toRightOf="@+id/ima_photo1"/>
     <TextView
         android:id="@+id/tv_sub_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ima_photo"
+        android:layout_alignBottom="@+id/ima_photo1"
         android:layout_marginLeft="5dp"
-        android:layout_toEndOf="@+id/ima_photo"
+        android:layout_toRightOf="@+id/ima_photo1"
+        android:layout_toEndOf="@+id/ima_photo1"
         android:text="subtitle"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textSize="@dimen/text_size_small"/>
@@ -36,7 +38,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/tv_title"
         android:layout_marginTop="5dp"
-        android:background="@color/orange"
+        android:background="@drawable/btn_state"
         android:text="state"
         android:textSize="@dimen/text_size_middle"/>
 </RelativeLayout>

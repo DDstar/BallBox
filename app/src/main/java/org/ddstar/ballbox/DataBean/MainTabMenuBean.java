@@ -8,6 +8,8 @@ public class MainTabMenuBean {
     String workName;
     String workMsg;
     int type;
+    int isEnable;
+
 
     public MainTabMenuBean(int menuPhotoRes, String workName, String workMsg, int type) {
         this.menuPhotoRes = menuPhotoRes;
@@ -48,6 +50,18 @@ public class MainTabMenuBean {
                 return "赚取积分";
         }
         return "";
+    }
+
+    public boolean isEnable() {
+        if (isEnable == 0){
+            return  true;
+        }else {
+            return  false;
+        }
+    }
+
+    public void setEnable(int enable) {
+        isEnable = enable;
     }
 
     public void setType(int type) {

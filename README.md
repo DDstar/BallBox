@@ -22,7 +22,7 @@ code :0 或 -1 失败   ，1正常 ，2或其他为其他情况
 msg:提示信息
 
 
-1、主页面广告图
+1、主页面广告图  
 URL + "index"
 传值：无
 返回：
@@ -32,7 +32,7 @@ img：图片地址
 isshow：是否展示  1展示，0不展示
 {"code":1,"msg":"\u67e5\u8be2\u6210\u529f","fflist":{"url":"http:\/\/www.baidu.com","img":"static\/items\/m_57cfa6366ba37.jpg","isshow":"1"}}
 
-2、获取用户信息（包含注册）
+2、获取用户信息（包含注册)-----ok
 URL + "userstatus"
 传值：imei 用户imei值
 返回：
@@ -55,7 +55,7 @@ fflist：1 成功 0失败
 
 
 
-4、每日签到
+4、每日签到---ok
 URL + "qian"
 传值：userid 用户uid值
 返回：
@@ -74,7 +74,7 @@ fflist：当前分享的次数，当分享次数达到第五次的时候code会�
 {"code":2,"msg":"\u5b8c\u6210\u5206\u4eab\u4efb\u52a1","fflist":1}
 {"code":"-1","msg":"\u4eca\u5929\u5df2\u5206\u4eab5\u6b21\u4e86","fflist":5}
 
-6、摇一摇抽奖
+6、摇一摇抽奖---ok
 URL + "yaoyyao"
 传值：userid 用户uid值
 返回：
@@ -114,6 +114,29 @@ wadtitle:公告标题
 wadurl：点击跳转的url
 {"code":1,"msg":"\u67e5\u8be2\u6210\u529f","fflist":{"wadtitle":"\u6700\u65b0\u516c\u544a\uff1a\u5feb\u8fdb\u6765\u770b\u770b\u554a","wadurl":"http:\/\/www.baidu.com"}}
 
+10、获取兑吧URL
+URL + " duibaurl "
+传值：userid 用户id
+返回：
+code：0失败，-1 用户不存在，1 成功
+fflist：code=1的时候fflist等于 兑吧url
+
+{"code":"0","msg":"userid\u4e0d\u4e3a\u7a7a","fflist":""}
+{"code":"-1","msg":"\u67e5\u65e0\u6b64userid","fflist":""}
+{"code":1,"msg":"\u67e5\u627e\u6210\u529f","fflist":"http:\/\/www.duiba.com.cn\/autoLogin\/autologin?uid=10001&credits=1114&appKey=3wJui3CPHyfpz5F5FH5ACQwPkQAp&sign=a755e0ab16774d262144930a0003a120×tamp=147333321455"}
+
+11、更新用户友盟地址
+URL + " user_umeng"
+传值：userid 用户id  ，umeng  友盟44位token
+返回：
+code：0失败，-1 用户不存在，1 成功
+
+{"code":"1","msg":"\u66f4\u65b0\u53cb\u76dftoken\u6210\u529f","fflist":""}
+
+
+12、领棒棒糖功能，已经有接口了，前端直接对接。
+提交棒棒糖接口：http://api.qqmzp.com/qiu.php?url=
+Get请求，把用户输入的url拼接上去
 
 ----------------------------------账号信息
 
@@ -125,7 +148,8 @@ https://connect.qq.com/
 
 QQ就是30987333密码
 
-xx971313.
+haohao.
+
 
 
 友盟统计：
@@ -159,3 +183,8 @@ http://www.duiba.com.cn/ 
 App Secret：
 
 bKEsb2fnob6hwWxikND94LDs3qm
+
+有米
+
+63294aa964ffa1a9
+c0bb43b0cee2cdaf

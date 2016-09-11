@@ -3,6 +3,8 @@ package org.ddstar.ballbox.Base;
 import android.app.Application;
 
 import com.socks.library.KLog;
+import com.umeng.message.IUmengRegisterCallback;
+import com.umeng.message.PushAgent;
 
 import org.xutils.x;
 
@@ -19,5 +21,13 @@ public class App extends Application {
     }
 
     private void openUMPush() {
+        PushAgent mPushAgent = PushAgent.getInstance(this);
+        mPushAgent.enable(new IUmengRegisterCallback() {
+            @Override
+            public void onRegistered(String deviceToken) {
+                KLog.e(deviceToken);
+            }
+        });
+
     }
 }

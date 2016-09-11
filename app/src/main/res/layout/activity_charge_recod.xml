@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="org.ddstar.ballbox.Activity.ChargeRecodActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/red">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="兑换交易记录"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/empty_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true" android:layout_centerVertical="true"
+            android:layout_marginTop="15dp" android:text="啥都沒有~"/>
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_above="@+id/textView13"
+            android:layout_centerHorizontal="true" android:src="@drawable/app_icon"/>
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/listView_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"/>
+
+</LinearLayout>

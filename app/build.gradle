@@ -4,11 +4,10 @@ apply plugin: 'android-apt'
 android {
     compileSdkVersion 23
     buildToolsVersion '23.0.3'
-
     defaultConfig {
         applicationId "com.mdxx.qqbh"
         minSdkVersion 19
-        targetSdkVersion 24
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
@@ -24,13 +23,20 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    //    compile 'com.android.support:recyclerview-v7:24.1.1'
+    //    compile 'com.zhy:base-rvadapter:3.0.3'
+    compile project(':PushSDK')
+    //    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+    //    compile 'com.jakewharton.rxbinding:rxbinding-support-v4:0.4.0'
+    //    compile 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
     compile 'com.jakewharton:butterknife:8.4.0'
     compile 'com.android.support:appcompat-v7:24.1.1'
     compile 'com.android.support:support-v4:23.4.0'
-    //    compile 'com.android.support:recyclerview-v7:24.1.1'
-    //    compile 'com.zhy:base-rvadapter:3.0.3'
     compile 'com.zhy:base-adapter:3.0.3'
     compile 'org.xutils:xutils:3.3.36'
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.github.zhaokaiqiang.klog:library:1.5.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:design:23.4.0'
+    compile files('src/main/libs/YoumiSdk_v6.4.4_2016-09-08.jar')
 }

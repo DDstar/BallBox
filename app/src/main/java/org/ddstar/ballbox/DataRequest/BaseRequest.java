@@ -1,7 +1,6 @@
 package org.ddstar.ballbox.DataRequest;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import org.ddstar.ballbox.Base.Contants;
 import org.xutils.common.Callback;
@@ -14,24 +13,54 @@ import java.util.Map;
  * Created by DDstar on 2016/9/8.
  */
 public class BaseRequest {
-    public static void xutilsGetData(){
-
-    }
-    public static void xutilsPostData(String head,Map<String,Object>parmarMap, final ResultCallback rc){
+    public static void xutilsGetData(String head, Map<String, Object> parmarMap, final ResultCallback rc) {
         String itemHeade = "";
-        if (!TextUtils.isEmpty(head)){
+        if (!TextUtils.isEmpty(head)) {
             itemHeade = head;
         }
         RequestParams requestParams = new RequestParams(Contants.BASE_URL + itemHeade);
-        if (parmarMap!= null){
-            for (Map.Entry<String,Object> entry:parmarMap.entrySet()){
-                requestParams.addParameter(entry.getKey(),entry.getValue());
+        if (parmarMap != null) {
+            for (Map.Entry<String, Object> entry : parmarMap.entrySet()) {
+                requestParams.addQueryStringParameter(entry.getKey(), (String) entry.getValue());
             }
         }
-      x.http().post(requestParams, new Callback.CommonCallback<String>() {
+        x.http().get(requestParams, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                rc.onSuccess(result);
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                rc.onError(ex.toString());
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
+    public static void xutilsPostData(String head, Map<String, Object> parmarMap, final ResultCallback rc) {
+        String itemHeade = "";
+        if (!TextUtils.isEmpty(head)) {
+            itemHeade = head;
+        }
+        RequestParams requestParams = new RequestParams(Contants.BASE_URL + itemHeade);
+        if (parmarMap != null) {
+            for (Map.Entry<String, Object> entry : parmarMap.entrySet()) {
+                requestParams.addParameter(entry.getKey(), entry.getValue());
+            }
+        }
+        x.http().post(requestParams, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String s) {
-                Log.e("xutilsPostData","thread--->" + Thread.currentThread().getName());
                 rc.onSuccess(s);
             }
 

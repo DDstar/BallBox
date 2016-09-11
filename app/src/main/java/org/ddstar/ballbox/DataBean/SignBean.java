@@ -3,12 +3,12 @@ package org.ddstar.ballbox.DataBean;
 /**
  * Created by Administrator on 2016/9/11 0011.
  */
-public class ChargeBean {
+public class SignBean {
 
     /**
      * code : 1
-     * msg : 查找成功
-     * fflist : http://www.duiba.com.cn/autoLogin/autologin?uid=10003&credits=6&appKey=3wJui3CPHyfpz5F5FH5ACQwPkQAp&sign=c5f8c5ce3dae617f2140ca6641bb98f6&timestamp=1473589054926
+     * msg : 签到成功
+     * fflist : 6
      */
 
     private int code;

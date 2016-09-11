@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 import com.google.gson.Gson;
 
-import org.ddstar.ballbox.DataBean.ChargeBean;
+import org.ddstar.ballbox.DataBean.MainBean;
 import org.ddstar.ballbox.DataRequest.BaseRequest;
 import org.ddstar.ballbox.DataRequest.ResultCallback;
 import org.ddstar.ballbox.R;
@@ -46,7 +46,7 @@ public class ChargeFra extends Fragment {
         BaseRequest.xutilsPostData("index", null, new ResultCallback() {
             @Override
             public void onSuccess(String s) {
-                ChargeBean resultBean = new Gson().fromJson(s, ChargeBean.class);
+                MainBean resultBean = new Gson().fromJson(s, MainBean.class);
 
             }
 

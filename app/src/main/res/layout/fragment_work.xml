@@ -1,42 +1,57 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
               android:orientation="vertical"
-             tools:context="org.ddstar.ballbox.Fragment.WorkFra">
+              tools:context="org.ddstar.ballbox.Fragment.WorkFra">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/red"
+        android:layout_height="60dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="任务列表"
+            android:textColor="@color/white"
+            android:id="@+id/textView9"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
 
     <RelativeLayout
-        android:padding="10dp"
+        android:id="@+id/work_1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="10dp">
         <ImageView
-            android:layout_marginEnd="10dp"
+            android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/work_1"
-            android:id="@+id/imageView2" android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"/>
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" android:layout_marginEnd="10dp"
+            android:src="@drawable/work_1"/>
         <TextView
-            android:textColor="@color/orange"
-            android:textSize="@dimen/text_size_large"
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="积分任务一"
-            android:id="@+id/textView6"
             android:layout_alignParentTop="true"
             android:layout_marginTop="10dp"
-            android:layout_toEndOf="@+id/imageView2"/>
+            android:layout_toEndOf="@+id/imageView2"
+            android:text="积分任务一"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/text_size_large"/>
         <TextView
+            android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="做任务赚积分，\n完成任务能获得更多积分"
-            android:id="@+id/textView7"
             android:layout_marginTop="30dp"
-            android:layout_toEndOf="@+id/imageView2"/>
+            android:layout_toEndOf="@+id/imageView2"
+            android:text="做任务赚积分，\n完成任务能获得更多积分"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
     </RelativeLayout>
     <TextView android:layout_width="match_parent" android:layout_height="2dp"
-    android:background="@color/light_gray"/>
+              android:background="@color/light_gray"/>
 </LinearLayout>
