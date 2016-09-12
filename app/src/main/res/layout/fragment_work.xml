@@ -3,7 +3,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context="org.ddstar.ballbox.Fragment.WorkFra">
+              tools:context="com.mdxx.qqbh.Fragment.WorkFra">
     <RelativeLayout
         android:layout_width="match_parent"
         android:background="@color/red"

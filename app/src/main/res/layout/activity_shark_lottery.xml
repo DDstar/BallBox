@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/shark"
-    tools:context="org.ddstar.ballbox.Activity.SharkLotteryActivity">
+    tools:context="com.mdxx.qqbh.Activity.SharkLotteryActivity">
 
     <LinearLayout
         android:orientation="horizontal"
