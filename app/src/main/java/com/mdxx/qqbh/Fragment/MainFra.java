@@ -11,20 +11,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.mdxx.qqbh.Activity.GetBBCandyActivity;
 import com.mdxx.qqbh.Activity.MainActivity;
 import com.mdxx.qqbh.Activity.SharkLotteryActivity;
 import com.mdxx.qqbh.Base.Contants;
-import com.mdxx.qqbh.DataBean.MainUserMsgBean;
-import com.google.gson.Gson;
-import com.socks.library.KLog;
-
 import com.mdxx.qqbh.DataBean.MainADBean;
+import com.mdxx.qqbh.DataBean.MainUserMsgBean;
 import com.mdxx.qqbh.DataBean.SignBean;
 import com.mdxx.qqbh.DataRequest.BaseRequest;
 import com.mdxx.qqbh.DataRequest.ResultCallback;
 import com.mdxx.qqbh.R;
 import com.mdxx.qqbh.Utils.SPControl;
+import com.socks.library.KLog;
+import com.umeng.message.ALIAS_TYPE;
+import com.umeng.message.PushAgent;
+import com.umeng.message.UTrack;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -71,13 +73,17 @@ public class MainFra extends Fragment {
     private void registUser() {
         String Imei = ((TelephonyManager) getActivity().getSystemService(getActivity().TELEPHONY_SERVICE))
                 .getDeviceId();
-        HashMap<String, Object> parmap = new HashMap<>();
+        parmap.clear();
         parmap.put("imei", Imei);
         BaseRequest.xutilsPostData("userstatus", parmap, new ResultCallback() {
             @Override
             public void onSuccess(String s) {
                 MainUserMsgBean.FflistBean fflistBean = new Gson().fromJson(s, MainUserMsgBean.class).getFflist();
                 SPControl.saveUserID(getActivity(), fflistBean.getUserid());
+                KLog.e("userID = " + fflistBean.getUserid());
+                KLog.e("deviceToken = " + SPControl.getString(getActivity(), Contants.UM_DEVICE_TOKEN));
+                registerUMWithUserId();
+                registerOurServer();
                 int xslb = fflistBean.getXslb();
                 if (xslb == 1) {
                     btnGiftState.setEnabled(false);
@@ -95,8 +101,36 @@ public class MainFra extends Fragment {
                 }
             }
 
+
             @Override
             public void onError(String s) {
+
+            }
+        });
+    }
+
+
+    private void registerOurServer() {
+        parmap.clear();
+        parmap.put("userid", SPControl.getString(getActivity(), Contants.USER_ID_KEY));
+        parmap.put("umeng", SPControl.getString(getActivity(), Contants.UM_DEVICE_TOKEN));
+        BaseRequest.xutilsPostData("user_umeng", parmap, new ResultCallback() {
+            @Override
+            public void onSuccess(String s) {
+            }
+
+            @Override
+            public void onError(String s) {
+
+            }
+        });
+    }
+
+    private void registerUMWithUserId() {
+        PushAgent mPushAgent = PushAgent.getInstance(getActivity());
+        mPushAgent.addAlias(SPControl.getString(getActivity(), Contants.USER_ID_KEY), ALIAS_TYPE.QQ, new UTrack.ICallBack() {
+            @Override
+            public void onMessage(boolean b, String s) {
 
             }
         });

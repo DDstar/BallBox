@@ -8,4 +8,5 @@ public class Contants {
     public static String IMGUURL = "http://www.taoqiuqiu.com/";
     public static String USER_ID_KEY = "taoqiuqiuuserid";
     public static String SHAREPRE_KEY = "taoqiuqiuspkey";
+    public static String UM_DEVICE_TOKEN = "umdevicestoken";
 }

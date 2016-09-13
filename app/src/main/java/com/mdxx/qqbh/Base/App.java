@@ -2,6 +2,7 @@ package com.mdxx.qqbh.Base;
 
 import android.app.Application;
 
+import com.mdxx.qqbh.Utils.SPControl;
 import com.socks.library.KLog;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
@@ -30,7 +31,7 @@ public class App extends Application {
             @Override
             public void onSuccess(String deviceToken) {
                 //注册成功会返回device token
-                KLog.e(deviceToken);
+                SPControl.saveString(App.this, Contants.UM_DEVICE_TOKEN, deviceToken);
             }
 
             @Override
