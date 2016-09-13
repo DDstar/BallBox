@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import net.youmi.android.offers.OffersManager;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -32,11 +34,11 @@ public class WorkFra extends Fragment {
     }
 
     private void initYouMi() {
-//     OffersManager.getInstance(getActivity()).onAppLaunch();
+        OffersManager.getInstance(getActivity()).onAppLaunch();
     }
 
     @OnClick(com.mdxx.qqbh.R.id.work_1)
     public void onClick() {
-//        OffersManager.getInstance(getActivity()).showOffersWall();
+        OffersManager.getInstance(getActivity()).showOffersWall();
     }
 }

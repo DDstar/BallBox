@@ -19,6 +19,8 @@ import com.mdxx.qqbh.R;
 import com.mdxx.qqbh.Utils.SPControl;
 import com.mdxx.qqbh.Utils.ToastUtil;
 
+import net.youmi.android.AdManager;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -50,7 +52,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initYMSDK() {
-//        AdManager.getInstance(this).init("63294aa964ffa1a9", "c0bb43b0cee2cdaf", false, true);
+        AdManager.getInstance(this).init("63294aa964ffa1a9", "c0bb43b0cee2cdaf", false, true);
     }
 
 
