@@ -11,18 +11,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.mdxx.qqbh.Activity.AboutUsActivity;
 import com.mdxx.qqbh.Activity.ChargeRecodActivity;
+import com.mdxx.qqbh.Activity.CreditActivity;
+import com.mdxx.qqbh.Activity.VideoActivity;
 import com.mdxx.qqbh.Base.Contants;
 import com.mdxx.qqbh.DataBean.ChargeBean;
 import com.mdxx.qqbh.DataBean.MainUserMsgBean;
+import com.mdxx.qqbh.DataBean.SignBean;
 import com.mdxx.qqbh.DataRequest.BaseRequest;
 import com.mdxx.qqbh.DataRequest.ResultCallback;
+import com.mdxx.qqbh.R;
 import com.mdxx.qqbh.Utils.SPControl;
 import com.mdxx.qqbh.Utils.ToastUtil;
-import com.google.gson.Gson;
-
-import com.mdxx.qqbh.Activity.CreditActivity;
-import com.mdxx.qqbh.DataBean.SignBean;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,7 +46,8 @@ public class UserFra extends Fragment {
     @BindView(com.mdxx.qqbh.R.id.btn_sign)
     Button btnSign;
 
-    Map<String,Object> parmap = new HashMap<>();
+    Map<String, Object> parmap = new HashMap<>();
+
     public UserFra() {
         // Required empty public constructor
     }
@@ -86,7 +89,9 @@ public class UserFra extends Fragment {
         });
     }
 
-    @OnClick({com.mdxx.qqbh.R.id.charge, com.mdxx.qqbh.R.id.record, com.mdxx.qqbh.R.id.video, com.mdxx.qqbh.R.id.share, com.mdxx.qqbh.R.id.qqgroup, com.mdxx.qqbh.R.id.btn_sign})
+    @OnClick({com.mdxx.qqbh.R.id.charge, com.mdxx.qqbh.R.id.record, com.mdxx.qqbh.R.id.video,
+            com.mdxx.qqbh.R.id.share, com.mdxx.qqbh.R.id.qqgroup, com.mdxx.qqbh.R.id.btn_sign
+            , R.id.tv_about_us})
     public void onClick(View view) {
         switch (view.getId()) {
             case com.mdxx.qqbh.R.id.charge:
@@ -118,29 +123,33 @@ public class UserFra extends Fragment {
                 startActivity(new Intent(getActivity(), ChargeRecodActivity.class));
                 break;
             case com.mdxx.qqbh.R.id.video:
+                startActivity(new Intent(getActivity(), VideoActivity.class));
                 break;
             case com.mdxx.qqbh.R.id.share:
+                break;
+            case R.id.tv_about_us:
+                startActivity(new Intent(getActivity(), AboutUsActivity.class));
                 break;
             case com.mdxx.qqbh.R.id.qqgroup:
                 break;
             case com.mdxx.qqbh.R.id.btn_sign:
                 parmap.clear();
-                parmap.put("userid",SPControl.getString(getActivity(), Contants.USER_ID_KEY));
-            BaseRequest.xutilsPostData("qian", parmap, new ResultCallback() {
-                @Override
-                public void onSuccess(String s) {
-                    SignBean signBean = new Gson().fromJson(s, SignBean.class);
-                    if (signBean.getCode() == 1){
-                        tvScore.setText(signBean.getFflist());
+                parmap.put("userid", SPControl.getString(getActivity(), Contants.USER_ID_KEY));
+                BaseRequest.xutilsPostData("qian", parmap, new ResultCallback() {
+                    @Override
+                    public void onSuccess(String s) {
+                        SignBean signBean = new Gson().fromJson(s, SignBean.class);
+                        if (signBean.getCode() == 1) {
+                            tvScore.setText(signBean.getFflist());
+                        }
+                        ToastUtil.showMessage(getActivity(), signBean.getMsg());
                     }
-                    ToastUtil.showMessage(getActivity(),signBean.getMsg());
-                }
 
-                @Override
-                public void onError(String s) {
+                    @Override
+                    public void onError(String s) {
 
-                }
-            });
+                    }
+                });
                 break;
         }
     }

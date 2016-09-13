@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Design\DesignCode\ASCode\BallBox1\BallBox\PushSDK\src\main\shaders"/></dataSet><dataSet config="release"><source path="C:\Design\DesignCode\ASCode\BallBox1\BallBox\PushSDK\build-types\release\shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="D:\Design\DemoCode\BallBox\PushSDK\src\main\shaders"/></dataSet><dataSet config="release"><source path="D:\Design\DemoCode\BallBox\PushSDK\build-types\release\shaders"/></dataSet></merger>
