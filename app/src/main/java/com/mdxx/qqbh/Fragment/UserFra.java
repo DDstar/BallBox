@@ -1,6 +1,8 @@
 package com.mdxx.qqbh.Fragment;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -25,6 +27,9 @@ import com.mdxx.qqbh.DataRequest.ResultCallback;
 import com.mdxx.qqbh.R;
 import com.mdxx.qqbh.Utils.SPControl;
 import com.mdxx.qqbh.Utils.ToastUtil;
+import com.pgyersdk.javabean.AppBean;
+import com.pgyersdk.update.PgyUpdateManager;
+import com.pgyersdk.update.UpdateManagerListener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -90,8 +95,8 @@ public class UserFra extends Fragment {
     }
 
     @OnClick({com.mdxx.qqbh.R.id.charge, com.mdxx.qqbh.R.id.record, com.mdxx.qqbh.R.id.video,
-            com.mdxx.qqbh.R.id.share, com.mdxx.qqbh.R.id.qqgroup, com.mdxx.qqbh.R.id.btn_sign
-            , R.id.tv_about_us})
+            com.mdxx.qqbh.R.id.share, com.mdxx.qqbh.R.id.qqgroup, com.mdxx.qqbh.R.id.btn_sign,
+            R.id.tv_about_us, R.id.update})
     public void onClick(View view) {
         switch (view.getId()) {
             case com.mdxx.qqbh.R.id.charge:
@@ -127,6 +132,38 @@ public class UserFra extends Fragment {
                 break;
             case com.mdxx.qqbh.R.id.share:
                 break;
+            case R.id.update:
+                PgyUpdateManager.register(getActivity(),
+                        new UpdateManagerListener() {
+
+                            @Override
+                            public void onUpdateAvailable(final String result) {
+
+                                // 将新版本信息封装到AppBean中
+                                final AppBean appBean = getAppBeanFromString(result);
+                                new AlertDialog.Builder(getActivity())
+                                        .setTitle("更新")
+                                        .setMessage("")
+                                        .setNegativeButton(
+                                                "确定",
+                                                new DialogInterface.OnClickListener() {
+
+                                                    @Override
+                                                    public void onClick(
+                                                            DialogInterface dialog,
+                                                            int which) {
+                                                        startDownloadTask(
+                                                                getActivity(),
+                                                                appBean.getDownloadURL());
+                                                    }
+                                                }).show();
+                            }
+
+                            @Override
+                            public void onNoUpdateAvailable() {
+                            }
+                        });
+                break;
             case R.id.tv_about_us:
                 startActivity(new Intent(getActivity(), AboutUsActivity.class));
                 break;
@@ -154,4 +191,9 @@ public class UserFra extends Fragment {
         }
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        PgyUpdateManager.unregister();
+    }
 }

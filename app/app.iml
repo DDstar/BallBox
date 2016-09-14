@@ -139,6 +139,7 @@
     <orderEntry type="library" exported="" scope="TEST" name="junit-4.12" level="project" />
     <orderEntry type="library" exported="" name="butterknife-annotations-8.4.0" level="project" />
     <orderEntry type="library" exported="" name="butterknife-8.4.0" level="project" />
+    <orderEntry type="library" exported="" name="pgyer_sdk_2.4.2" level="project" />
     <orderEntry type="module" module-name="PushSDK" exported="" />
   </component>
 </module>

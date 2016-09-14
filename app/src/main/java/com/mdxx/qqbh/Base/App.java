@@ -3,6 +3,7 @@ package com.mdxx.qqbh.Base;
 import android.app.Application;
 
 import com.mdxx.qqbh.Utils.SPControl;
+import com.pgyersdk.crash.PgyCrashManager;
 import com.socks.library.KLog;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
@@ -20,7 +21,9 @@ public class App extends Application {
         x.Ext.init(this);
         openUMPush();
         KLog.init(true, getApplicationContext().getPackageName());
+        PgyCrashManager.register(this);
     }
+
 
     private void openUMPush() {
         PushAgent mPushAgent = PushAgent.getInstance(this);
@@ -41,4 +44,6 @@ public class App extends Application {
         });
         PushAgent.getInstance(this).onAppStart();
     }
+
+
 }

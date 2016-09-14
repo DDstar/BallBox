@@ -2,6 +2,7 @@ package com.mdxx.qqbh.Fragment;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.telephony.TelephonyManager;
@@ -9,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -24,6 +27,7 @@ import com.mdxx.qqbh.DataRequest.ResultCallback;
 import com.mdxx.qqbh.R;
 import com.mdxx.qqbh.Utils.SPControl;
 import com.socks.library.KLog;
+import com.squareup.picasso.Picasso;
 import com.umeng.message.ALIAS_TYPE;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
@@ -47,6 +51,10 @@ public class MainFra extends Fragment {
     Button btnQqState;
     @BindView(R.id.btn_work_state)
     Button btnWorkState;
+    @BindView(R.id.adview)
+    ImageView adView;
+    @BindView(R.id.ad_container)
+    FrameLayout adViewContainer;
 
 
     Map<String, Object> parmap = new HashMap<>();
@@ -144,7 +152,18 @@ public class MainFra extends Fragment {
                 MainADBean mainADBean = new Gson().fromJson(s, MainADBean.class);
                 final MainADBean.FflistBean fflistBean = mainADBean.getFflist();
                 if ("1".equals(fflistBean.getIsshow())) {
+                    Picasso.with(getActivity()).load(Contants.IMGUURL + fflistBean.getImg()).into(adView);
+                } else {
+                    adViewContainer.setVisibility(View.GONE);
                 }
+                adViewContainer.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent urlIntent = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse(fflistBean.getUrl()));
+                        startActivity(urlIntent);
+                    }
+                });
             }
 
             @Override
@@ -155,7 +174,7 @@ public class MainFra extends Fragment {
     }
 
 
-    @OnClick({R.id.btn_shark, R.id.btn_rocket, R.id.btn_gift_state, R.id.btn_sign_state, R.id.btn_qq_state, R.id.btn_work_state})
+    @OnClick({R.id.btn_shark, R.id.btn_rocket, R.id.btn_gift_state, R.id.btn_sign_state, R.id.btn_qq_state, R.id.btn_work_state, R.id.imageView6})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_shark:
@@ -165,6 +184,9 @@ public class MainFra extends Fragment {
                 startActivity(new Intent(getActivity(), GetBBCandyActivity.class));
                 break;
             case R.id.btn_gift_state:
+                break;
+            case R.id.imageView6:
+                adViewContainer.setVisibility(View.GONE);
                 break;
             case R.id.btn_sign_state:
                 parmap.clear();

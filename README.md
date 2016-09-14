@@ -138,6 +138,11 @@ code：0失败，-1 用户不存在，1 成功
 提交棒棒糖接口：http://api.qqmzp.com/qiu.php?url=
 Get请求，把用户输入的url拼接上去
 
+13、前端对接，用户中心中点击【视频攻略+视频】
+跳转这个链接：webView加载
+http://pop.chinajszj.com/front/strategy/index/tid/9
+
+
 ----------------------------------账号信息
 
 
@@ -188,3 +193,6 @@ bKEsb2fnob6hwWxikND94LDs3qm
 
 63294aa964ffa1a9
 c0bb43b0cee2cdaf
+
+测试领取棒棒糖
+http://t.cn/Rtq66Dp

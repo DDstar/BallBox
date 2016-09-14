@@ -18,6 +18,7 @@ import com.mdxx.qqbh.Fragment.WorkFra;
 import com.mdxx.qqbh.R;
 import com.mdxx.qqbh.Utils.SPControl;
 import com.mdxx.qqbh.Utils.ToastUtil;
+import com.pgyersdk.update.PgyUpdateManager;
 
 import net.youmi.android.AdManager;
 
@@ -39,6 +40,7 @@ public class MainActivity extends BaseActivity {
         initContainer();
         initTab();
         initYMSDK();
+        PgyUpdateManager.register(this);//开启版本检查
 //        openUMPush();
         int flag = getIntent().getIntExtra("flag", -1);
         if (flag == 2) {
