@@ -58,7 +58,7 @@
         </meta-data>
         <meta-data
             android:name="PGYER_APPID"
-            android:value="4b6e8877dfcc2462bedb37dcf66b6d87">
+            android:value="98bde12d90fe1eab00294e11cc07f2da">
         </meta-data>
 
         <activity android:name=".Activity.SharkLotteryActivity">

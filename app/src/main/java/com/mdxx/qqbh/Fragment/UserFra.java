@@ -138,7 +138,6 @@ public class UserFra extends Fragment {
 
                             @Override
                             public void onUpdateAvailable(final String result) {
-
                                 // 将新版本信息封装到AppBean中
                                 final AppBean appBean = getAppBeanFromString(result);
                                 new AlertDialog.Builder(getActivity())
@@ -161,6 +160,7 @@ public class UserFra extends Fragment {
 
                             @Override
                             public void onNoUpdateAvailable() {
+                                ToastUtil.showMessage(getActivity(), "当前已经是最新版本");
                             }
                         });
                 break;
@@ -170,6 +170,7 @@ public class UserFra extends Fragment {
             case com.mdxx.qqbh.R.id.qqgroup:
                 break;
             case com.mdxx.qqbh.R.id.btn_sign:
+
                 parmap.clear();
                 parmap.put("userid", SPControl.getString(getActivity(), Contants.USER_ID_KEY));
                 BaseRequest.xutilsPostData("qian", parmap, new ResultCallback() {
@@ -178,6 +179,8 @@ public class UserFra extends Fragment {
                         SignBean signBean = new Gson().fromJson(s, SignBean.class);
                         if (signBean.getCode() == 1) {
                             tvScore.setText(signBean.getFflist());
+                            btnSign.setEnabled(false);
+                            btnSign.setText("已签到");
                         }
                         ToastUtil.showMessage(getActivity(), signBean.getMsg());
                     }
