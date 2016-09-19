@@ -142,6 +142,9 @@ Get请求，把用户输入的url拼接上去
 跳转这个链接：webView加载
 http://pop.chinajszj.com/front/strategy/index/tid/9
 
+14、分享的内容
+http://www.taoqiuqiu.com/index.php?m=json&a=share_data   
+
 
 ----------------------------------账号信息
 
@@ -153,7 +156,7 @@ https://connect.qq.com/
 
 QQ就是30987333密码
 
-haohao.
+xxxxxx.
 
 
 
@@ -196,3 +199,9 @@ c0bb43b0cee2cdaf
 
 测试领取棒棒糖
 http://t.cn/Rtq66Dp
+
+签名文件
+
+第一个密码是：a5555606
+alias选：miaozi
+第二个密码是：a463219105

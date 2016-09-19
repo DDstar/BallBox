@@ -36,7 +36,7 @@
         android:textStyle="bold"
         android:text="用户id：22**22获得1个Q币"
         android:textColor="@color/orange"
-        android:id="@+id/textView8"
+        android:id="@+id/tv_user_data"
         android:layout_above="@+id/linearLayout"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"/>

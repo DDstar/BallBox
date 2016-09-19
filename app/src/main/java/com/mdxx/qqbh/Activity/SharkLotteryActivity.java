@@ -7,14 +7,15 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Vibrator;
-import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
-import com.mdxx.qqbh.Base.Contants;
 import com.google.gson.Gson;
-
 import com.mdxx.qqbh.Base.BaseActivity;
+import com.mdxx.qqbh.Base.Contants;
+import com.mdxx.qqbh.DataBean.BinboBean;
 import com.mdxx.qqbh.DataBean.SharkBean;
 import com.mdxx.qqbh.DataRequest.BaseRequest;
 import com.mdxx.qqbh.DataRequest.ResultCallback;
@@ -22,6 +23,10 @@ import com.mdxx.qqbh.R;
 import com.mdxx.qqbh.Utils.SPControl;
 import com.mdxx.qqbh.Utils.ToastUtil;
 
+import java.util.List;
+import java.util.Random;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -29,6 +34,8 @@ public class SharkLotteryActivity extends BaseActivity implements SensorEventLis
 
     SensorManager sensorManager = null;
     Vibrator vibrator = null;
+    @BindView(R.id.tv_user_data)
+    TextView tvUserData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +44,46 @@ public class SharkLotteryActivity extends BaseActivity implements SensorEventLis
         ButterKnife.bind(this);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         vibrator = (Vibrator) getSystemService(Service.VIBRATOR_SERVICE);
+        requestLotteryRecord();
+    }
+
+    private void requestLotteryRecord() {
+        BaseRequest.xutilsPostData("yaoyyao_log", null, new ResultCallback() {
+            @Override
+            public void onSuccess(String s) {
+                BinboBean binboBean = new Gson().fromJson(s, BinboBean.class);
+                if (binboBean.getCode() == 1) {
+                    List<String> binboBeanFflist = binboBean.getFflist();
+                    //循环切换中奖用户信息
+                    showingUserMsg(binboBeanFflist);
+                }
+            }
+
+
+            @Override
+            public void onError(String s) {
+
+            }
+        });
+    }
+
+    private void showingUserMsg(final List<String> binboBeanFflist) {
+        final Random random = new Random();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                final int index = random.nextInt(binboBeanFflist.size());
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String userMsg = binboBeanFflist.get(index);
+                        tvUserData.setText(userMsg);
+                    }
+                });
+                new Handler().postDelayed(this, 3000);
+            }
+        }, 3000);
+
     }
 
     @Override
@@ -73,9 +120,6 @@ public class SharkLotteryActivity extends BaseActivity implements SensorEventLis
         if (sensorType == Sensor.TYPE_ACCELEROMETER) {
             if ((Math.abs(values[0]) > 17 || Math.abs(values[1]) > 17 || Math
                     .abs(values[2]) > 17)) {
-                Log.d("sensor x ", "============ values[0] = " + values[0]);
-                Log.d("sensor y ", "============ values[1] = " + values[1]);
-                Log.d("sensor z ", "============ values[2] = " + values[2]);
 //                tv.setText("摇一摇成功!!!");
                 //摇动手机后，再伴随震动提示~~
                 vibrator.vibrate(500);

@@ -6,6 +6,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+import com.mdxx.qqbh.DataBean.BBCandyBean;
 import com.socks.library.KLog;
 
 import com.mdxx.qqbh.Base.BaseActivity;
@@ -41,7 +43,12 @@ public class GetBBCandyActivity extends BaseActivity {
                 BaseRequest.xutilsGetData(etCandyUrl.getText().toString(), null, new ResultCallback() {
                     @Override
                     public void onSuccess(String s) {
-                        KLog.e(s);
+                        BBCandyBean bbCandyBean = new Gson().fromJson(s, BBCandyBean.class);
+                        if (bbCandyBean.getCode() == 0) {
+                            ToastUtil.showMessage(GetBBCandyActivity.this, "领取成功~");
+                        }else {
+                            ToastUtil.showMessage(GetBBCandyActivity.this, "领取已经到达上限了");
+                        }
                     }
 
                     @Override
@@ -54,7 +61,7 @@ public class GetBBCandyActivity extends BaseActivity {
             case R.id.btn_more:
                 removeAllActivity();
                 Intent intent = new Intent(this, MainActivity.class);
-                intent.putExtra("flag",2);
+                intent.putExtra("flag", 2);
                 startActivity(intent);
 
                 break;

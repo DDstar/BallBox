@@ -36,14 +36,12 @@
             android:orientation="vertical"
             android:padding="10dp">
             <TextView
-                android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/about_what"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
             <TextView
-                android:id="@+id/textView15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -63,14 +61,12 @@
             android:orientation="vertical"
             android:padding="10dp">
             <TextView
-                android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/about_how"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
             <TextView
-                android:id="@+id/textView15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -90,14 +86,12 @@
             android:orientation="vertical"
             android:padding="10dp">
             <TextView
-                android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/about_score"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
             <TextView
-                android:id="@+id/textView15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

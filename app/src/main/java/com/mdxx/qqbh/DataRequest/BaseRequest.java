@@ -19,7 +19,7 @@ public class BaseRequest {
         if (!TextUtils.isEmpty(head)) {
             itemHeade = head;
         }
-        RequestParams requestParams = new RequestParams(Contants.BASE_URL + itemHeade);
+        RequestParams requestParams = new RequestParams(Contants.BBCANDY + itemHeade);
         if (parmarMap != null) {
             for (Map.Entry<String, Object> entry : parmarMap.entrySet()) {
                 requestParams.addQueryStringParameter(entry.getKey(), (String) entry.getValue());
