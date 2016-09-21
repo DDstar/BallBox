@@ -230,20 +230,6 @@ public class MainFra extends Fragment {
 
                 detailBean = new Gson().fromJson(s, ShareDetailBean.class);
                 if (detailBean.getCode() == 1) {
-                    // 1、检验登录，获取access_token和openid
-//                    mTencent.login(MainFra.this, "topicget_simple_userinfo,add_topic", null);
-                    //2 登录
-                    // 3 分享
-//                    final Bundle params = new Bundle();
-//                    ShareDetailBean.FflistBean detailBeanFflist = detailBean.getFflist();
-//                    params.putString(QQShare.SHARE_TO_QQ_TITLE, detailBeanFflist.getSharetitle());
-//                    params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, detailBeanFflist.getShareurl());
-//                    params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, "http://www.taoqiuqiu.com/static/qiuqiulog.png");
-//                    params.putString(QQShare.SHARE_TO_QQ_SUMMARY, detailBeanFflist.getShareword());
-//                    params.putString(QQShare.SHARE_TO_QQ_APP_NAME, getString(R.string.app_name));
-//                    params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
-//                    params.putInt(QQShare.SHARE_TO_QQ_EXT_INT, 0x00);
-//                    doShareToQQ(params);
                     ShareQQ.showShare(getActivity(), detailBean.getFflist());
                 } else {
                     ToastUtil.showMessage(getActivity(), detailBean.getMsg());

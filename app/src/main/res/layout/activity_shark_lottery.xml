@@ -18,7 +18,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:background="#00ffffff"
+            android:background="#ee0a3b"
             android:id="@+id/btn_permsg"/>
         <Button
             android:layout_width="0dp"

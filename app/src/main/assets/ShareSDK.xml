@@ -120,7 +120,7 @@
 
     <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
     <QQ
-        AppId="101350063"
+        AppId="1105624113"
         AppKey="d1e5554df880256f22d41e0f5d98b8ec"
         Enable="true"
         Id="7"

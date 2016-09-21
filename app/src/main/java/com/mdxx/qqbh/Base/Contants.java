@@ -11,6 +11,6 @@ public class Contants {
     public static String UM_DEVICE_TOKEN = "umdevicestoken";
     public static String QQ_GROUP_URL = "http://jq.qq.com/?_wv=1027&k=2GD8IGn";
 //    public static String QQ_APPID = "101349509";
-    public static String QQ_APPID = "222222";
+//    public static String QQ_APPID = "222222";
     public static String BBCANDY = "http://api.qqmzp.com/qiu.php?url=";
 }

@@ -28,6 +28,7 @@ import com.mdxx.qqbh.DataRequest.BaseRequest;
 import com.mdxx.qqbh.DataRequest.ResultCallback;
 import com.mdxx.qqbh.R;
 import com.mdxx.qqbh.Utils.SPControl;
+import com.mdxx.qqbh.Utils.ShareQQ;
 import com.mdxx.qqbh.Utils.ToastUtil;
 import com.pgyersdk.javabean.AppBean;
 import com.pgyersdk.update.PgyUpdateManager;
@@ -200,15 +201,16 @@ public class UserFra extends Fragment {
         }
     }
 
+    private ShareDetailBean detailBean;
 
     private void shareQQ() {
         BaseRequest.xutilsPostData("share_data", null, new ResultCallback() {
             @Override
             public void onSuccess(String s) {
-                ShareDetailBean detailBean = new Gson().fromJson(s, ShareDetailBean.class);
+
+                detailBean = new Gson().fromJson(s, ShareDetailBean.class);
                 if (detailBean.getCode() == 1) {
-                    final Bundle params = new Bundle();
-                    ShareDetailBean.FflistBean detailBeanFflist = detailBean.getFflist();
+                    ShareQQ.showShare(getActivity(), detailBean.getFflist());
                 } else {
                     ToastUtil.showMessage(getActivity(), detailBean.getMsg());
                 }
