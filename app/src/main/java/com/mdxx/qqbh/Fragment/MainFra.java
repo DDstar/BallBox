@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.telephony.TelephonyManager;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,21 +27,13 @@ import com.mdxx.qqbh.DataRequest.BaseRequest;
 import com.mdxx.qqbh.DataRequest.ResultCallback;
 import com.mdxx.qqbh.R;
 import com.mdxx.qqbh.Utils.SPControl;
+import com.mdxx.qqbh.Utils.ShareQQ;
 import com.mdxx.qqbh.Utils.ToastUtil;
 import com.socks.library.KLog;
 import com.squareup.picasso.Picasso;
-import com.tencent.connect.common.Constants;
-import com.tencent.connect.share.QQShare;
-import com.tencent.open.utils.ThreadManager;
-import com.tencent.tauth.IUiListener;
-import com.tencent.tauth.Tencent;
-import com.tencent.tauth.UiError;
 import com.umeng.message.ALIAS_TYPE;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -70,7 +61,7 @@ public class MainFra extends Fragment {
 
 
     Map<String, Object> parmap = new HashMap<>();
-    private Tencent mTencent;
+    //    private Tencent mTencent;
     private ShareDetailBean detailBean;
 
     public MainFra() {
@@ -84,7 +75,7 @@ public class MainFra extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
-        mTencent = Tencent.createInstance(Contants.QQ_APPID, getActivity().getApplicationContext());
+//        mTencent = Tencent.createInstance(Contants.QQ_APPID, getActivity().getApplicationContext());
         initData();
         return view;
     }
@@ -241,23 +232,19 @@ public class MainFra extends Fragment {
                 if (detailBean.getCode() == 1) {
                     // 1、检验登录，获取access_token和openid
 //                    mTencent.login(MainFra.this, "topicget_simple_userinfo,add_topic", null);
-
                     //2 登录
-
-
                     // 3 分享
-                    final Bundle params = new Bundle();
-                    ShareDetailBean.FflistBean detailBeanFflist = detailBean.getFflist();
-                    params.putString(QQShare.SHARE_TO_QQ_TITLE, detailBeanFflist.getSharetitle());
-                    params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, detailBeanFflist.getShareurl());
-                    params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, "http://www.taoqiuqiu.com/static/qiuqiulog.png");
-                    params.putString(QQShare.SHARE_TO_QQ_SUMMARY, detailBeanFflist.getShareword());
-                    params.putString(QQShare.SHARE_TO_QQ_APP_NAME, getString(R.string.app_name));
-                    params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
-                    params.putInt(QQShare.SHARE_TO_QQ_EXT_INT, 0x00);
-                    doShareToQQ(params);
-
-
+//                    final Bundle params = new Bundle();
+//                    ShareDetailBean.FflistBean detailBeanFflist = detailBean.getFflist();
+//                    params.putString(QQShare.SHARE_TO_QQ_TITLE, detailBeanFflist.getSharetitle());
+//                    params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, detailBeanFflist.getShareurl());
+//                    params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, "http://www.taoqiuqiu.com/static/qiuqiulog.png");
+//                    params.putString(QQShare.SHARE_TO_QQ_SUMMARY, detailBeanFflist.getShareword());
+//                    params.putString(QQShare.SHARE_TO_QQ_APP_NAME, getString(R.string.app_name));
+//                    params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
+//                    params.putInt(QQShare.SHARE_TO_QQ_EXT_INT, 0x00);
+//                    doShareToQQ(params);
+                    ShareQQ.showShare(getActivity(), detailBean.getFflist());
                 } else {
                     ToastUtil.showMessage(getActivity(), detailBean.getMsg());
                 }
@@ -271,85 +258,85 @@ public class MainFra extends Fragment {
     }
 
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Tencent.onActivityResultData(requestCode, resultCode, data, new IUiListener() {
-            @Override
-            public void onComplete(Object response) {
-                if (null == response) {
-                    return;
-                }
-                JSONObject jsonResponse = (JSONObject) response;
-                if (null != jsonResponse && jsonResponse.length() == 0) {
-                    return;
-                }
-                String token = null;
-                String expires = null;
-                String openId = null;
-                try {
-                    token = jsonResponse.getString(Constants.PARAM_ACCESS_TOKEN);
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        Tencent.onActivityResultData(requestCode, resultCode, data, new IUiListener() {
+//            @Override
+//            public void onComplete(Object response) {
+//                if (null == response) {
+//                    return;
+//                }
+//                JSONObject jsonResponse = (JSONObject) response;
+//                if (null != jsonResponse && jsonResponse.length() == 0) {
+//                    return;
+//                }
+//                String token = null;
+//                String expires = null;
+//                String openId = null;
+//                try {
+//                    token = jsonResponse.getString(Constants.PARAM_ACCESS_TOKEN);
+//
+//                    expires = jsonResponse.getString(Constants.PARAM_EXPIRES_IN);
+//                    openId = jsonResponse.getString(Constants.PARAM_OPEN_ID);
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//                if (!TextUtils.isEmpty(token) && !TextUtils.isEmpty(expires)
+//                        && !TextUtils.isEmpty(openId)) {
+//                    mTencent.setAccessToken(token, expires);
+//                    mTencent.setOpenId(openId);
+//                    final Bundle params = new Bundle();
+//                    ShareDetailBean.FflistBean detailBeanFflist = detailBean.getFflist();
+//                    params.putString(QQShare.SHARE_TO_QQ_TITLE, detailBeanFflist.getSharetitle());
+//                    params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, detailBeanFflist.getShareurl());
+//                    params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, "http://www.taoqiuqiu.com/static/qiuqiulog.png");
+//                    params.putString(QQShare.SHARE_TO_QQ_SUMMARY, detailBeanFflist.getShareword());
+//                    params.putString(QQShare.SHARE_TO_QQ_APP_NAME, getString(R.string.app_name));
+//                    params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
+//                    params.putInt(QQShare.SHARE_TO_QQ_EXT_INT, 0x00);
+//                    doShareToQQ(params);
+//                }
+//            }
+//
+//            @Override
+//            public void onError(UiError uiError) {
+//
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//            }
+//        });
+//    }
 
-                    expires = jsonResponse.getString(Constants.PARAM_EXPIRES_IN);
-                    openId = jsonResponse.getString(Constants.PARAM_OPEN_ID);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                if (!TextUtils.isEmpty(token) && !TextUtils.isEmpty(expires)
-                        && !TextUtils.isEmpty(openId)) {
-                    mTencent.setAccessToken(token, expires);
-                    mTencent.setOpenId(openId);
-                    final Bundle params = new Bundle();
-                    ShareDetailBean.FflistBean detailBeanFflist = detailBean.getFflist();
-                    params.putString(QQShare.SHARE_TO_QQ_TITLE, detailBeanFflist.getSharetitle());
-                    params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, detailBeanFflist.getShareurl());
-                    params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, "http://www.taoqiuqiu.com/static/qiuqiulog.png");
-                    params.putString(QQShare.SHARE_TO_QQ_SUMMARY, detailBeanFflist.getShareword());
-                    params.putString(QQShare.SHARE_TO_QQ_APP_NAME, getString(R.string.app_name));
-                    params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
-                    params.putInt(QQShare.SHARE_TO_QQ_EXT_INT, 0x00);
-                    doShareToQQ(params);
-                }
-            }
-
-            @Override
-            public void onError(UiError uiError) {
-
-            }
-
-            @Override
-            public void onCancel() {
-            }
-        });
-    }
-
-    private void doShareToQQ(final Bundle params) {
-        // QQ分享要在主线程做
-        ThreadManager.getMainHandler().post(new Runnable() {
-
-            @Override
-            public void run() {
-                if (null != mTencent) {
-                    mTencent.shareToQQ(getActivity(), params, new IUiListener() {
-                        @Override
-                        public void onComplete(Object o) {
-                            //回调成功，调用系统后台
-                            KLog.e(o);
-                        }
-
-                        @Override
-                        public void onError(UiError uiError) {
-                            //分享失败
-                            KLog.e(uiError);
-                        }
-
-                        @Override
-                        public void onCancel() {
-                            //分享取消
-                            ToastUtil.showMessage(getActivity(), "取消分享了~");
-                        }
-                    });
-                }
-            }
-        });
-    }
+//    private void doShareToQQ(final Bundle params) {
+//        // QQ分享要在主线程做
+//        ThreadManager.getMainHandler().post(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                if (null != mTencent) {
+//                    mTencent.shareToQQ(getActivity(), params, new IUiListener() {
+//                        @Override
+//                        public void onComplete(Object o) {
+//                            //回调成功，调用系统后台
+//                            KLog.e(o);
+//                        }
+//
+//                        @Override
+//                        public void onError(UiError uiError) {
+//                            //分享失败
+//                            KLog.e(uiError);
+//                        }
+//
+//                        @Override
+//                        public void onCancel() {
+//                            //分享取消
+//                            ToastUtil.showMessage(getActivity(), "取消分享了~");
+//                        }
+//                    });
+//                }
+//            }
+//        });
+//    }
 }

@@ -33,11 +33,6 @@ import com.pgyersdk.javabean.AppBean;
 import com.pgyersdk.update.PgyUpdateManager;
 import com.pgyersdk.update.UpdateManagerListener;
 import com.socks.library.KLog;
-import com.tencent.connect.share.QQShare;
-import com.tencent.open.utils.ThreadManager;
-import com.tencent.tauth.IUiListener;
-import com.tencent.tauth.Tencent;
-import com.tencent.tauth.UiError;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -60,7 +55,6 @@ public class UserFra extends Fragment {
     Button btnSign;
 
     Map<String, Object> parmap = new HashMap<>();
-    private Tencent mTencent;
 
     public UserFra() {
         // Required empty public constructor
@@ -73,7 +67,6 @@ public class UserFra extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(com.mdxx.qqbh.R.layout.fragment_user, container, false);
         ButterKnife.bind(this, view);
-        mTencent = Tencent.createInstance(Contants.QQ_APPID, getActivity().getApplicationContext());
         registUser();
         return view;
     }
@@ -216,15 +209,6 @@ public class UserFra extends Fragment {
                 if (detailBean.getCode() == 1) {
                     final Bundle params = new Bundle();
                     ShareDetailBean.FflistBean detailBeanFflist = detailBean.getFflist();
-                    params.putString(QQShare.SHARE_TO_QQ_TITLE, detailBeanFflist.getSharetitle());
-//        params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, "http://y.qq.com/i/song.html?songid=XXX&source=mobileQQ#wechat_redirect");
-                    params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, detailBeanFflist.getShareurl());
-                    params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, "http://www.taoqiuqiu.com/static/qiuqiulog.png");
-                    params.putString(QQShare.SHARE_TO_QQ_SUMMARY, detailBeanFflist.getShareword());
-                    params.putString(QQShare.SHARE_TO_QQ_APP_NAME, getString(R.string.app_name));
-                    params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
-                    params.putInt(QQShare.SHARE_TO_QQ_EXT_INT, 0x00);
-                    doShareToQQ(params);
                 } else {
                     ToastUtil.showMessage(getActivity(), detailBean.getMsg());
                 }
@@ -237,36 +221,6 @@ public class UserFra extends Fragment {
         });
     }
 
-    private void doShareToQQ(final Bundle params) {
-        // QQ分享要在主线程做
-        ThreadManager.getMainHandler().post(new Runnable() {
-
-            @Override
-            public void run() {
-                if (null != mTencent) {
-                    mTencent.shareToQQ(getActivity(), params, new IUiListener() {
-                        @Override
-                        public void onComplete(Object o) {
-                            //回调成功，调用系统后台
-                            KLog.e(o);
-                        }
-
-                        @Override
-                        public void onError(UiError uiError) {
-                            //分享失败
-                            KLog.e(uiError);
-                        }
-
-                        @Override
-                        public void onCancel() {
-                            //分享取消
-                            ToastUtil.showMessage(getActivity(), "取消分享了~");
-                        }
-                    });
-                }
-            }
-        });
-    }
 
     @Override
     public void onDestroy() {
