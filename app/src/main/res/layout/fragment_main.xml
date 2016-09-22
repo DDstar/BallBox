@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.mdxx.qqbh.Fragment.MainFra">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.mdxx.qqbh.Fragment.MainFra">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,18 +15,19 @@
 
             <include
                 layout="@layout/list_header"
-                android:visibility="visible" />
+                android:visibility="visible"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:padding="10dp">
 
                 <ImageView
                     android:id="@+id/ima_photo1"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/sc" />
+                    android:src="@drawable/sc"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -42,7 +43,7 @@
                         android:layout_height="wrap_content"
                         android:text="新手大礼包奖励"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/text_size_large" />
+                        android:textSize="@dimen/text_size_large"/>
 
                     <TextView
                         android:id="@+id/tv_sub_title"
@@ -50,7 +51,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
                         android:text="新用户首次获得5积分"
-                        android:textSize="@dimen/text_size_middle" />
+                        android:textSize="@dimen/text_size_middle"/>
                 </LinearLayout>
 
                 <TextView
@@ -64,24 +65,25 @@
                     android:gravity="center"
                     android:text="未完成"
                     android:textColor="@color/tab_tv_in"
-                    android:textSize="@dimen/text_size_large" />
+                    android:textSize="@dimen/text_size_large"/>
             </RelativeLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/gray_line" />
+                android:background="@color/gray_line"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:padding="10dp">
 
                 <ImageView
                     android:id="@+id/ima_photo2"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/qiandao" />
+                    android:src="@drawable/qiandao"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -97,7 +99,7 @@
                         android:layout_height="wrap_content"
                         android:text="每日签到领积分"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/text_size_large" />
+                        android:textSize="@dimen/text_size_large"/>
 
                     <TextView
                         android:id="@+id/tv_sub_title1"
@@ -105,7 +107,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
                         android:text="每日签到得1积分"
-                        android:textSize="@dimen/text_size_middle" />
+                        android:textSize="@dimen/text_size_middle"/>
                 </LinearLayout>
 
                 <TextView
@@ -119,24 +121,25 @@
                     android:gravity="center"
                     android:text="未完成"
                     android:textColor="@color/tab_tv_in"
-                    android:textSize="@dimen/text_size_large" />
+                    android:textSize="@dimen/text_size_large"/>
             </RelativeLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/gray_line" />
+                android:background="@color/gray_line"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:padding="10dp">
 
                 <ImageView
                     android:id="@+id/ima_photo3"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/qq" />
+                    android:src="@drawable/qq"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -152,7 +155,7 @@
                         android:layout_height="wrap_content"
                         android:text="分享到5个QQ"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/text_size_large" />
+                        android:textSize="@dimen/text_size_large"/>
 
                     <TextView
                         android:id="@+id/tv_sub_title2"
@@ -160,7 +163,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
                         android:text="分享到5个QQ群得10积分"
-                        android:textSize="@dimen/text_size_middle" />
+                        android:textSize="@dimen/text_size_middle"/>
                 </LinearLayout>
 
                 <TextView
@@ -174,24 +177,25 @@
                     android:gravity="center"
                     android:text="未获得"
                     android:textColor="@color/tab_tv_in"
-                    android:textSize="@dimen/text_size_large" />
+                    android:textSize="@dimen/text_size_large"/>
             </RelativeLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/gray_line" />
+                android:background="@color/gray_line"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:padding="10dp">
 
                 <ImageView
                     android:id="@+id/ima_photo4"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/rw0" />
+                    android:src="@drawable/rw0"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -207,7 +211,7 @@
                         android:layout_height="wrap_content"
                         android:text="做任务赚积分"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/text_size_large" />
+                        android:textSize="@dimen/text_size_large"/>
 
                     <TextView
                         android:id="@+id/tv_sub_title4"
@@ -215,7 +219,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
                         android:text="每下载一款app都能得到相\n应积分日无上限"
-                        android:textSize="@dimen/text_size_middle" />
+                        android:textSize="@dimen/text_size_middle"/>
                 </LinearLayout>
 
                 <TextView
@@ -229,7 +233,7 @@
                     android:gravity="center"
                     android:text="赚积分"
                     android:textColor="@color/tab_tv_in"
-                    android:textSize="@dimen/text_size_large" />
+                    android:textSize="@dimen/text_size_large"/>
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
@@ -245,13 +249,13 @@
         <ImageView
             android:id="@+id/adview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|top"
-            android:src="@android:drawable/ic_delete" />
+            android:src="@android:drawable/ic_delete"/>
     </FrameLayout>
 </RelativeLayout>

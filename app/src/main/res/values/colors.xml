@@ -7,7 +7,7 @@
     <color name="light_gray_1">#EBEBEB</color>
     <color name="light_gray_2">#CFCFCF</color>
     <color name="tomato">#FF4040</color>
-    <color name="white">	#FFFAFA</color>
+    <color name="white">	#FFFFFFFF</color>
     <color name="orange">	#EEC900</color>
     <color name="red">	#ff0000</color>
     <color name="green">#228B22</color>

@@ -31,6 +31,8 @@ public class MainActivity extends BaseActivity {
     RadioGroup radioGroup;
     @BindView(R.id.rb_work)
     RadioButton rbWork;
+    @BindView(R.id.rb_user)
+    RadioButton rbMine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +47,20 @@ public class MainActivity extends BaseActivity {
         int flag = getIntent().getIntExtra("flag", -1);
         if (flag == 2) {
             go2work();
+        } else if (flag == 3) {
+            go2User();
         }
+
+
     }
 
 
     public void go2work() {
         rbWork.setChecked(true);
+    }
+
+    public void go2User() {
+        rbMine.setChecked(true);
     }
 
     private void initYMSDK() {

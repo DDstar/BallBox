@@ -2,6 +2,8 @@ package com.mdxx.qqbh.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -9,6 +11,7 @@ import com.mdxx.qqbh.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class VideoActivity extends AppCompatActivity {
 
@@ -24,18 +27,34 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     private void initWebView() {
-//        WebSettings webSettings = mWebView.getSettings();
-//        webSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);
-//        mWebView.setWebViewClient(new CusClient());
+        WebSettings settings = mWebView.getSettings();
+        settings.setJavaScriptEnabled(true);
+        mWebView.setWebViewClient(new MyWebViewClient());
+        mWebView.setWebChromeClient(new MyWebChromeClient());
         mWebView.loadUrl("http://pop.chinajszj.com/front/strategy/index/tid/9");
     }
 
+    @OnClick(R.id.back)
+    public void onClick() {
+        finish();
+    }
 
-    class CusClient extends WebViewClient{
+    class MyWebViewClient extends WebViewClient {
+
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            return true;
+
+            return super.shouldOverrideUrlLoading(view, url);
         }
     }
+
+    class MyWebChromeClient extends WebChromeClient {
+
+        @Override
+        public void onProgressChanged(WebView view, int newProgress) {
+
+        }
+    }
+
 
 }

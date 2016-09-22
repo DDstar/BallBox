@@ -70,7 +70,7 @@ public class GetBBCandyActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.textView8:
-                startActivity(new Intent(this, TipActivity.class));
+//                startActivity(new Intent(this, TipActivity.class));
                 break;
         }
     }

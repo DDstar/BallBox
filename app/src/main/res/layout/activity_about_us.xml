@@ -1,19 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.mdxx.qqbh.Activity.AboutUsActivity">
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:orientation="vertical">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f2f2f2"
+            tools:context="com.mdxx.qqbh.Activity.AboutUsActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f2f2f2"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/relativeLayout2"
             android:layout_width="match_parent"
-            android:layout_height="60dp" android:background="@color/red">
+            android:layout_height="50dp"
+            android:background="@color/tab_tv_in">
+
+            <RelativeLayout
+                android:id="@+id/back"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/tab_tv_in">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fanhui" />
+            </RelativeLayout>
+
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
@@ -21,89 +39,90 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:text="关于我们"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="18sp" />
         </RelativeLayout>
-        <TextView android:layout_width="match_parent"
-                  android:layout_height="4dp"
-                  android:layout_marginBottom="15dp"
-                  android:background="@color/deep_gray"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/relativeLayout2"
+            android:layout_marginTop="8dp"
+            android:background="@color/white"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="15dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/about_what"
-                android:textAppearance="?android:attr/textAppearanceLarge"/>
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
                 android:text="@string/about_what_detail"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textSize="14sp" />
         </LinearLayout>
-        <TextView android:layout_width="match_parent"
-                  android:layout_height="4dp"
-                  android:layout_marginBottom="15dp"
-                  android:layout_marginTop="15dp"
-                  android:background="@color/deep_gray"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/relativeLayout2"
+            android:layout_marginTop="8dp"
+            android:background="@color/white"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="15dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/about_how"
-                android:textAppearance="?android:attr/textAppearanceLarge"/>
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
                 android:text="@string/about_how_detail"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textSize="14sp" />
         </LinearLayout>
-        <TextView android:layout_width="match_parent"
-                  android:layout_height="4dp"
-                  android:layout_marginBottom="15dp"
-                  android:layout_marginTop="15dp"
-                  android:background="@color/deep_gray"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/relativeLayout2"
+            android:layout_marginTop="8dp"
+            android:background="@color/white"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="15dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/about_score"
-                android:textAppearance="?android:attr/textAppearanceLarge"/>
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
                 android:text="@string/about_score_detail"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textSize="14sp" />
         </LinearLayout>
-        <TextView android:layout_width="match_parent"
-                  android:layout_height="4dp"
-                  android:background="@color/deep_gray"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="wrap_content"
@@ -115,7 +134,8 @@
                 android:drawablePadding="10dp"
                 android:drawableStart="@android:drawable/ic_notification_overlay"
                 android:text="@string/about_kefu"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:textSize="14sp" />
+
             <TextView
                 android:id="@+id/tv_url"
                 android:layout_width="wrap_content"
@@ -123,23 +143,23 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView16"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:autoLink="web|phone|email"
                 android:drawablePadding="10dp"
                 android:drawableStart="@android:drawable/ic_notification_overlay"
                 android:text="@string/about_url"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/red"
-                android:textStyle="italic"/>
+                android:textColor="@color/blue"
+                android:textSize="14sp" />
+
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_alignParentEnd="true"
-                android:layout_alignTop="@+id/textView16"
-                android:layout_marginEnd="39dp"
-                android:cropToPadding="false"
-                android:src="@drawable/app_icon"/>
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/app_icon" />
         </RelativeLayout>
 
     </LinearLayout>

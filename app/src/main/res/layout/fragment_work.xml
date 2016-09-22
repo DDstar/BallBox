@@ -1,9 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.mdxx.qqbh.Fragment.WorkFra">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#f2f2f2"
+              android:orientation="vertical"
+              tools:context="com.mdxx.qqbh.Fragment.WorkFra">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,13 +19,14 @@
             android:layout_centerVertical="true"
             android:text="积分任务"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="18sp"/>
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/work_1"
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:background="@color/white"
         android:padding="10dp">
 
         <ImageView
@@ -34,7 +36,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginEnd="10dp"
-            android:src="@drawable/rwmy1" />
+            android:src="@drawable/rwmy1"/>
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -50,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:text="有米赚积分任务"
                 android:textColor="@color/tab_tv_in"
-                android:textSize="@dimen/text_size_large" />
+                android:textSize="@dimen/text_size_large"/>
 
             <TextView
                 android:id="@+id/textView7"
@@ -58,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:text="每次完成任务都能获得积分！"
-                android:textSize="@dimen/text_size_middle" />
+                android:textSize="@dimen/text_size_middle"/>
         </LinearLayout>
 
         <TextView
@@ -70,11 +72,11 @@
             android:layout_marginRight="10dp"
             android:text="推选"
             android:textColor="@color/tab_tv_in"
-            android:textSize="16sp" />
+            android:textSize="16sp"/>
     </RelativeLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/gray_line" />
+        android:background="@color/gray_line"/>
 </LinearLayout>

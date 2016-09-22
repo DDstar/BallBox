@@ -1,7 +1,7 @@
 package com.mdxx.qqbh.Activity;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.mdxx.qqbh.R;
@@ -10,7 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class TipActivity extends AppCompatActivity {
+public class TipActivity extends Activity {
 
     @BindView(R.id.imageView8)
     ImageView imageView8;

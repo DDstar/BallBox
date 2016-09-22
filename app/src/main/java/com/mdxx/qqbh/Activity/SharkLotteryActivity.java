@@ -105,6 +105,10 @@ public class SharkLotteryActivity extends BaseActivity implements SensorEventLis
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_permsg:
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.putExtra("flag", 3);
+                removeAllActivity();
+                startActivity(intent);
                 break;
             case R.id.btn_gift:
                 startActivity(new Intent(this, ChargeRecodActivity.class));
