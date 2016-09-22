@@ -9,9 +9,9 @@ import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -47,13 +47,13 @@ import butterknife.OnClick;
  */
 public class MainFra extends Fragment {
     @BindView(R.id.btn_gift_state)
-    Button btnGiftState;
+    TextView btnGiftState;
     @BindView(R.id.btn_sign_state)
-    Button btnSignState;
+    TextView btnSignState;
     @BindView(R.id.btn_qq_state)
-    Button btnQqState;
+    TextView btnQqState;
     @BindView(R.id.btn_work_state)
-    Button btnWorkState;
+    TextView btnWorkState;
     @BindView(R.id.adview)
     ImageView adView;
     @BindView(R.id.ad_container)
@@ -65,14 +65,11 @@ public class MainFra extends Fragment {
     private ShareDetailBean detailBean;
 
     public MainFra() {
-        // Required empty public constructor
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
 //        mTencent = Tencent.createInstance(Contants.QQ_APPID, getActivity().getApplicationContext());
@@ -86,8 +83,7 @@ public class MainFra extends Fragment {
     }
 
     private void registUser() {
-        String Imei = ((TelephonyManager) getActivity().getSystemService(getActivity().TELEPHONY_SERVICE))
-                .getDeviceId();
+        String Imei = ((TelephonyManager) getActivity().getSystemService(getActivity().TELEPHONY_SERVICE)).getDeviceId();
         parmap.clear();
         parmap.put("imei", Imei);
         BaseRequest.xutilsPostData("userstatus", parmap, new ResultCallback() {

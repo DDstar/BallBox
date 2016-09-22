@@ -13,4 +13,8 @@
     <color name="green">#228B22</color>
     <color name="deep_gray">#607B8B</color>
     <color name="black">#000000</color>
+    <color name="gray">#a3a3a3</color>
+    <color name="gray_line">#dcdcdc</color>
+    <color name="tab_tv_in">#ff893a</color>
+    <color name="blue">#67b5ff</color>
 </resources>

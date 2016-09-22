@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.mdxx.qqbh.Activity.ChargeRecodActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/red">
+        android:layout_height="50dp"
+        android:background="@color/tab_tv_in">
+
+        <RelativeLayout
+            android:id="@+id/back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/tab_tv_in">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/fanhui" />
+        </RelativeLayout>
+
 
         <TextView
             android:id="@+id/textView9"
@@ -18,8 +34,29 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="兑换交易记录"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="12dp"
+            android:gravity="center"
+            android:text="11"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/tv_score"
+            app:srcCompat="@drawable/jifen" />
     </RelativeLayout>
 
 
@@ -28,22 +65,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
+
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true" android:layout_centerVertical="true"
-            android:layout_marginTop="15dp" android:text="啥都沒有~"/>
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="15dp"
+            android:text="啥都沒有~" />
+
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_above="@+id/textView13"
-            android:layout_centerHorizontal="true" android:src="@drawable/app_icon"/>
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView13"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/app_icon" />
     </RelativeLayout>
+
     <ListView
         android:id="@+id/listView_record"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible"/>
+        android:visibility="visible" />
 
 </LinearLayout>

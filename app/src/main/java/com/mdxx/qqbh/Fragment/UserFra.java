@@ -11,7 +11,6 @@ import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -53,19 +52,16 @@ public class UserFra extends Fragment {
     @BindView(com.mdxx.qqbh.R.id.tv_score)
     TextView tvScore;
     @BindView(com.mdxx.qqbh.R.id.btn_sign)
-    Button btnSign;
+    TextView btnSign;
 
     Map<String, Object> parmap = new HashMap<>();
 
     public UserFra() {
-        // Required empty public constructor
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(com.mdxx.qqbh.R.layout.fragment_user, container, false);
         ButterKnife.bind(this, view);
         registUser();
@@ -73,8 +69,7 @@ public class UserFra extends Fragment {
     }
 
     private void registUser() {
-        String Imei = ((TelephonyManager) getActivity().getSystemService(getActivity().TELEPHONY_SERVICE))
-                .getDeviceId();
+        String Imei = ((TelephonyManager) getActivity().getSystemService(getActivity().TELEPHONY_SERVICE)).getDeviceId();
         parmap.clear();
         parmap.put("imei", Imei);
         BaseRequest.xutilsPostData("userstatus", parmap, new ResultCallback() {
@@ -82,7 +77,7 @@ public class UserFra extends Fragment {
             public void onSuccess(String s) {
                 MainUserMsgBean.FflistBean fflistBean = new Gson().fromJson(s, MainUserMsgBean.class).getFflist();
                 SPControl.saveUserID(getActivity(), fflistBean.getUserid());
-                tvUserid.setText(fflistBean.getUserid());
+                tvUserid.setText("ID:" + fflistBean.getUserid());
                 tvScore.setText(fflistBean.getMoney());
                 int isqd = fflistBean.getIsqd();
                 if (isqd == 1) {

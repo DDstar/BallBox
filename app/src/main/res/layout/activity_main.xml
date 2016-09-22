@@ -1,37 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.mdxx.qqbh.Activity.MainActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_above="@+id/radioGroup"
+        android:background="@color/gray_line" />
+
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:background="#aff"
+        android:background="#fff"
         android:orientation="horizontal"
         android:weightSum="4">
+
         <RadioButton
             android:id="@+id/rb_main"
             style="@style/tabstyle"
-            android:background="@drawable/tab_main"
-            android:checked="true"/>
+            android:checked="true"
+            android:drawableTop="@drawable/tab_main"
+            android:text="主页"
+            android:textSize="12sp" />
+
         <RadioButton
             android:id="@+id/rb_work"
             style="@style/tabstyle"
-            android:background="@drawable/tab_work"/>
+            android:drawableTop="@drawable/tab_work"
+            android:text="任务"
+            android:textSize="12sp" />
+
         <RadioButton
             android:id="@+id/rb_charge"
             style="@style/tabstyle"
-            android:background="@drawable/tab_charge"/>
+            android:drawableTop="@drawable/tab_charge"
+            android:text="兑换"
+            android:textSize="12sp" />
+
         <RadioButton
             android:id="@+id/rb_user"
             style="@style/tabstyle"
-            android:background="@drawable/tab_user"/>
+            android:drawableTop="@drawable/tab_user"
+            android:text="兑换"
+            android:textSize="12sp" />
     </RadioGroup>
+
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -39,6 +58,7 @@
         android:layout_above="@+id/radioGroup"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
+
     </FrameLayout>
 
 </RelativeLayout>

@@ -8,10 +8,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.socks.library.KLog;
-import com.zhy.adapter.abslistview.CommonAdapter;
-import com.zhy.adapter.abslistview.ViewHolder;
-
 import com.mdxx.qqbh.Base.BaseActivity;
 import com.mdxx.qqbh.Base.Contants;
 import com.mdxx.qqbh.DataBean.ChargeRecodeBean;
@@ -20,6 +16,10 @@ import com.mdxx.qqbh.DataRequest.ResultCallback;
 import com.mdxx.qqbh.R;
 import com.mdxx.qqbh.Utils.SPControl;
 import com.mdxx.qqbh.Utils.TimeUtil;
+import com.socks.library.KLog;
+import com.zhy.adapter.abslistview.CommonAdapter;
+import com.zhy.adapter.abslistview.ViewHolder;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -27,6 +27,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ChargeRecodActivity extends BaseActivity {
 
@@ -81,6 +82,11 @@ public class ChargeRecodActivity extends BaseActivity {
                 KLog.e(s);
             }
         });
+    }
+
+    @OnClick(R.id.back)
+    public void onClick() {
+        finish();
     }
 
     class RecordAdapter extends CommonAdapter<ChargeRecodeBean.FflistBean> {

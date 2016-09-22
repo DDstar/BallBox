@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,36 +7,40 @@
     tools:context="com.mdxx.qqbh.Activity.SharkLotteryActivity">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:weightSum="2"
-        android:layout_alignParentStart="true" android:id="@+id/linearLayout">
-        <Button
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/btn_permsg"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:background="#ee0a3b"
-            android:id="@+id/btn_permsg"/>
+            android:layout_weight="1"
+            android:background="#00ee0a3b" />
+
         <Button
+            android:id="@+id/btn_gift"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:background="#00ffffff"
             android:layout_height="match_parent"
-            android:id="@+id/btn_gift"/>
+            android:layout_weight="1"
+            android:background="#00ffffff" />
     </LinearLayout>
+
     <TextView
+        android:id="@+id/tv_user_data"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:gravity="center"
-        android:layout_marginBottom="15dp"
-        android:textSize="@dimen/text_size_large"
-        android:textStyle="bold"
-        android:text="用户id：22**22获得1个Q币"
-        android:textColor="@color/orange"
-        android:id="@+id/tv_user_data"
         android:layout_above="@+id/linearLayout"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:text="用户id：22**22获得1个Q币"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 </RelativeLayout>

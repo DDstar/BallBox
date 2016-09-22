@@ -32,7 +32,7 @@ public class GetBBCandyActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_take_candy, R.id.btn_more})
+    @OnClick({R.id.btn_take_candy, R.id.btn_more, R.id.back, R.id.textView8})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_take_candy:
@@ -46,7 +46,7 @@ public class GetBBCandyActivity extends BaseActivity {
                         BBCandyBean bbCandyBean = new Gson().fromJson(s, BBCandyBean.class);
                         if (bbCandyBean.getCode() == 0) {
                             ToastUtil.showMessage(GetBBCandyActivity.this, "领取成功~");
-                        }else {
+                        } else {
                             ToastUtil.showMessage(GetBBCandyActivity.this, "领取已经到达上限了");
                         }
                     }
@@ -64,6 +64,13 @@ public class GetBBCandyActivity extends BaseActivity {
                 intent.putExtra("flag", 2);
                 startActivity(intent);
 
+                break;
+
+            case R.id.back:
+                finish();
+                break;
+            case R.id.textView8:
+                startActivity(new Intent(this, TipActivity.class));
                 break;
         }
     }
