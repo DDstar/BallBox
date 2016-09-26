@@ -124,7 +124,9 @@ public class UserFra extends Fragment {
                 });
                 break;
             case com.mdxx.qqbh.R.id.record:
-                startActivity(new Intent(getActivity(), ChargeRecodActivity.class));
+                Intent intent = new Intent(getActivity(), ChargeRecodActivity.class);
+                intent.putExtra("score", tvScore.getText());
+                startActivity(intent);
                 break;
             case com.mdxx.qqbh.R.id.video:
                 startActivity(new Intent(getActivity(), VideoActivity.class));

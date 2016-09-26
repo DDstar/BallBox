@@ -35,6 +35,8 @@ public class ChargeRecodActivity extends BaseActivity {
     ListView listViewRecord;
     @BindView(R.id.empty_data)
     RelativeLayout emptyData;
+    @BindView(R.id.tv_score)
+    TextView tvScore;
     private RecordAdapter mAdapter;
 
     @Override
@@ -42,6 +44,8 @@ public class ChargeRecodActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charge_recod);
         ButterKnife.bind(this);
+        String score = getIntent().getStringExtra("score");
+        tvScore.setText(score);
         requestData();
     }
 
@@ -104,7 +108,8 @@ public class ChargeRecodActivity extends BaseActivity {
             tvGoods.setText(item.getReason());
             tvScore.setText("" + item.getMoney());
             tvState.setText(item.getStatus());
-            tvDate.setText(TimeUtil.formatData("yyyy-MM-dd", item.getTime()));
+            KLog.e(item.getTime());
+            tvDate.setText(TimeUtil.getDateToString(item.getTime()));
         }
     }
 }

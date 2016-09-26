@@ -17,4 +17,10 @@ public class TimeUtil {
         result = format.format(new Date(timeStamp));
         return result;
     }
+
+    public static String getDateToString(long time) {
+        Date d = new Date(time *1000);
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+        return sf.format(d);
+    }
 }

@@ -122,8 +122,8 @@ public class SharkLotteryActivity extends BaseActivity implements SensorEventLis
         //values[0]:X轴，values[1]：Y轴，values[2]：Z轴
         float[] values = event.values;
         if (sensorType == Sensor.TYPE_ACCELEROMETER) {
-            if ((Math.abs(values[0]) > 17 || Math.abs(values[1]) > 17 || Math
-                    .abs(values[2]) > 17)) {
+            if ((Math.abs(values[0]) > 12 || Math.abs(values[1]) > 12 || Math
+                    .abs(values[2]) > 12)) {
 //                tv.setText("摇一摇成功!!!");
                 //摇动手机后，再伴随震动提示~~
                 vibrator.vibrate(500);
